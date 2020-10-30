@@ -40,7 +40,7 @@ const apiKey = "AIzaSyDjKIA2LWHZXaUbsEudEL3VTiPc4-OzBOU";
  console.log(query);
 
  axios.get(
-   'https://www.googleapis.com/books/v1/volumes?q=intitle'+query+'&orderBy=relevance&key='+apiKey).then(response => {
+   'https://www.googleapis.com/books/v1/volumes?q=inauthor:'+query+'&orderBy=relevance&key='+apiKey).then(response => {
      
      console.log(response.data);
      
