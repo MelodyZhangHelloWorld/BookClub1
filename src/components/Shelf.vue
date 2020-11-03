@@ -95,19 +95,6 @@ const apiKey = "AIzaSyDjKIA2LWHZXaUbsEudEL3VTiPc4-OzBOU";
      
      ); 
 
-/*axios.get('https://images-api.nasa.gov/search?q=' + query + '&media_type=image').then( response => { */
-
-        // axios.get('https://www.goodreads.com/author/show/' + query+'?format=xml&key=0TIQpFobs5Yltg1Pnw').then( response => {
-
-        //     console.log(response.data);
-
-           
-
-        //     alert("end of fetching");
-
-
-        //   //  this.results = response.data.collection.items;
-        // }); //.catch(e ( ))
       }
   }
 
@@ -119,7 +106,7 @@ const apiKey = "AIzaSyDjKIA2LWHZXaUbsEudEL3VTiPc4-OzBOU";
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
-  margin: 40px 0 0;
+  margin: 30px 0 0;
 }
 ul {
   list-style-type: none;
@@ -132,4 +119,7 @@ li {
 a {
   color: #19810c;
 }
+
+
+
 </style>

@@ -13,19 +13,21 @@
    
 </div>  <hr>-->
 
-    <BookCard
+    <ul>
+        <BookCard
     v-for="book in bookList"
     :key="book.volumeInfo.id"
     :title="book.volumeInfo.title"
     :author="book.volumeInfo.authors[0]"
-    :category="book.volumeInfo.categories==null?'N/A':book.volumeInfo.categories[0]"
+    :category="book.volumeInfo.categories==undefined?'N/A':book.volumeInfo.categories[0]"
     :lang="book.volumeInfo.language"
 
-    :imageLink="book.volumeInfo.imageLinks.thumbnail==null?'No Image from API':book.volumeInfo.imageLinks.thumbnail"
+    :imageLink="book.volumeInfo.imageLinks==null?'N/A':book.volumeInfo.imageLinks.thumbnail"
     
-    :description="book.volumeInfo.description"
+    :description="book.volumeInfo.description==null?'No description from API':book.volumeInfo.description"
 
     />
+    </ul>
   
 
  
@@ -47,3 +49,24 @@ export default {
   
 };
 </script>
+
+<style scoped>
+
+
+
+.ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.li {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin: 1rem auto;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  width: 90%;
+  max-width: 40rem;
+}
+
+</style>

@@ -1,11 +1,11 @@
 <template>
   <li>
     <h3>{{ title }}</h3>
-    <img :src="imageLink">
+    <img :src="imageLink" alt="No Image Link from API">
     <h4>{{ category }}  {{lang}} </h4>
       {{author}} <br> 
       
-    description..  <hr>
+    {{description}}..  <hr>
   </li>
   
 </template>
