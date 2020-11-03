@@ -4,10 +4,9 @@
     <h2>Type In Your Search Term</h2>
  
 <form v-on:submit.prevent="getResult(query)">
-      <input type="text" placeholder="Type in your search" v-model="query" />
+      <input type="text" placeholder="press enter to search" v-model="query" />
     </form> 
     
-<button >Add</button>
 
 
 
@@ -16,14 +15,9 @@
   </li> -->
 
 
-<book-info   v-for="book in bookList" :key="book.id" 
-        :book-information = "book" 
+<book-info 
+        :book-list = "bookList" 
   /> <!----->
-
-
-
-
-
 
 
   </div>
@@ -50,7 +44,7 @@ export default {
       msg3: "Shelf.vue",
       query: '',
       results: '',
-      itemList:'',
+      itemList:'', //？
 
       bookList: []
 
