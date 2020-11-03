@@ -7,6 +7,23 @@
       <input type="text" placeholder="Type in your search" v-model="query" />
     </form> 
     
+<button >Add</button>
+
+
+
+<!-- <li v-for="book in bookList" :key="book.id">
+    {{ book.volumeInfo.title }}
+  </li> -->
+
+
+<book-info   v-for="book in bookList" :key="book.id" 
+        :book-information = "book" 
+  /> <!----->
+
+
+
+
+
 
 
   </div>
@@ -16,9 +33,15 @@
 
 import axios from 'axios';
 // import Vue from 'vue';
+import BookInfo from "./BookInfo.vue";
 
 export default {
   name: 'Shelf',
+
+  components:{  //**
+    BookInfo
+  },
+
   props: {
     msg2: String
   },
@@ -27,12 +50,14 @@ export default {
       msg3: "Shelf.vue",
       query: '',
       results: '',
-      itemList:''
+      itemList:'',
+
+      bookList: []
+
+
     }
   },
   methods: {
-
-   
     getResult(query) {
 
 const apiKey = "AIzaSyDjKIA2LWHZXaUbsEudEL3VTiPc4-OzBOU";
@@ -40,14 +65,36 @@ const apiKey = "AIzaSyDjKIA2LWHZXaUbsEudEL3VTiPc4-OzBOU";
  console.log(query);
 
  axios.get(
+   //search for particular author
    'https://www.googleapis.com/books/v1/volumes?q=inauthor:'+query+'&orderBy=relevance&key='+apiKey).then(response => {
      
      console.log(response.data);
      
-   //  itemList = response.data.items;
+  //  itemList = response.data.items;
 
-     console.log(response.data.items);
+     console.log( response.data.items[0].volumeInfo);
+
+     this.bookList = response.data.items;  //***
+
+      console.log( "========================");
+  console.log( this.bookList);
+
+    //  console.log("title  " +response.data.items[0].volumeInfo.title);
+
+    //  console.log("author  " +response.data.items[0].volumeInfo.authors);
+
+    // console.log("rating  " +response.data.items[0].volumeInfo.averageRating);
+
+    //  console.log("imageLink  " +response.data.items[0].volumeInfo.imageLinks.thumbnail); 
+
+    //  console.log("infoLink   " +
+    //  response.data.items[0].volumeInfo.infoLink);
+
+    //   console.log("language is   " +
+    //  response.data.items[0].volumeInfo.language);
      
+    //   console.log("description    " +
+    //  response.data.items[0].volumeInfo.description);
      }
      
      
