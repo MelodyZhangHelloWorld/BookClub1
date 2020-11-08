@@ -1,5 +1,6 @@
 <template>
-  <li>
+<div id="bookcard">
+<li>
     <h3>{{ title }}</h3>
     <img :src="imageLink" alt="No Image Link from API">
     <h4>{{ category }}  {{lang}} </h4>
@@ -7,6 +8,8 @@
       
     {{description}}..  <hr>
   </li>
+</div>
+  
   
 </template>
 
@@ -16,3 +19,16 @@ export default {
  
 };
 </script>
+
+<style scoped>
+
+#bookcard {
+  font-family:  Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  
+ 
+}
+
+</style>

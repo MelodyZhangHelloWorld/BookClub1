@@ -70,25 +70,9 @@ const apiKey = "AIzaSyDjKIA2LWHZXaUbsEudEL3VTiPc4-OzBOU";
 
      this.bookList = response.data.items;  //***
 
-      console.log( "========================");
+      
   console.log( this.bookList);
 
-    //  console.log("title  " +response.data.items[0].volumeInfo.title);
-
-    //  console.log("author  " +response.data.items[0].volumeInfo.authors);
-
-    // console.log("rating  " +response.data.items[0].volumeInfo.averageRating);
-
-    //  console.log("imageLink  " +response.data.items[0].volumeInfo.imageLinks.thumbnail); 
-
-    //  console.log("infoLink   " +
-    //  response.data.items[0].volumeInfo.infoLink);
-
-    //   console.log("language is   " +
-    //  response.data.items[0].volumeInfo.language);
-     
-    //   console.log("description    " +
-    //  response.data.items[0].volumeInfo.description);
      }
      
      

@@ -39,7 +39,7 @@
 
 <script>
 
-import BookCard from "./BookCard.vue";
+import BookCard from "../views/BookCard.vue";
 export default {
     name: 'BookInfo',
     components:{  //**
