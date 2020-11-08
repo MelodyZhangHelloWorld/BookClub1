@@ -1,15 +1,88 @@
 <template>
 <div id="bookcard">
-<li>
-    <h3>{{ title }}</h3>
-    <img :src="imageLink" alt="No Image Link from API">
-    <h4>{{ category }}  {{lang}} </h4>
-      {{author}} <br> 
-      
-    {{description}}..  <hr>
-  </li>
-</div>
+
+ <b-row align-h="center" class="m-3">
+       <b-col cols=10 align-h="center"><!--  major -->
+
+   <b-card  class="m-3" >
+      <b-row  align-v="start" > <!-- image location-->
+
+        <b-col md="2"> <!-- **--><!-- image-->
+        <img :src="imageLink" alt="Image placeholder"
+        style="width:10rem"
+        class="m-2"
+        >
+
+     </b-col>
+
+     <b-col 
+     class="ml-4 mr-2 mt-2" id="bookcardText" > <!-- text-info -->  
+       <b-row class="mb-2">
+         <b-col align-h="start" id="bookTitle">  <b> {{title}} </b>  </b-col>
+          <b-col align-h="start"> {{author}} </b-col>
+         
+       </b-row>
+
+       <b-row >
+         <b-col align-h="start"> {{category}} </b-col>
+         <b-col align-h="start"> {{lang}}</b-col>
+       </b-row>
+
+
+        <div class="mt-1 ml-3 mr-3" >
+          
+            <b-row >
+             
+            <b-card-text>
+          <b>Description:</b>
+          {{ description}}
+            </b-card-text>
+             
+       </b-row>
+          
+        </div>
+
+
+     </b-col>
+
   
+     </b-row>
+
+       <b-row align-h="end">
+           <b-button  variant="primary" size="sm" class="mr-3 mt-2">
+Comment </b-button><!-- https://bootstrap-vue.org/docs/reference/color-variants#color-variants-and-css-class-mapping -->
+       </b-row>
+
+    <div class="switchClass "> <!---->
+     
+    <b-row align-h="center">
+     
+    
+       </b-row>
+
+    
+   
+    </div>
+
+
+   </b-card>
+
+  
+  
+  </b-col>
+
+  </b-row>
+
+
+
+<!---->
+
+
+
+
+</div>
+  <!---->
+
   
 </template>
 
@@ -30,5 +103,18 @@ export default {
   
  
 }
+#bookcardText{
+  font-family: Inconsolata;
+   text-align: left;
+   color: rgb(29, 28, 28);
+   font-size: large;
+}
+
+#bookTitle{
+  
+  font-size:x-large;
+  
+}
+
 
 </style>
