@@ -8,12 +8,12 @@
     :key="book.volumeInfo.id"
     :title="book.volumeInfo.title"
     :author="book.volumeInfo.authors[0]"
-    :category="book.volumeInfo.categories==undefined?'N/A':book.volumeInfo.categories[0]"
+    :category="book.volumeInfo.categories==undefined?'https://www.indiaspora.org/wp-content/uploads/2018/10/image-not-available.jpg':book.volumeInfo.categories[0]"
     :lang="book.volumeInfo.language"
 
-    :imageLink="book.volumeInfo.imageLinks==null?'N/A':book.volumeInfo.imageLinks.thumbnail"
+    :imageLink="book.volumeInfo.imageLinks==null?altImage:book.volumeInfo.imageLinks.thumbnail"
     
-    :description="book.volumeInfo.description==null?'No description from API':book.volumeInfo.description"
+    :description="book.volumeInfo.description==null?'No description available...':book.volumeInfo.description"
 
     />
     
@@ -34,6 +34,13 @@ export default {
     components:{  //**
     BookCard
   },
+
+  data(){
+    return{
+      altImage: "https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png"
+    }
+  },
+
   props: ['bookList']
   
 };

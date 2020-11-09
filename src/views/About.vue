@@ -1,10 +1,10 @@
 <template>
   <div class="about">
-    <h1>This page is for </h1>
-    <h2>
-      <Shelf msg2="Book Shelf"/>
+
+   
+      <Shelf />
     
-    </h2>
+    
   </div>
 </template>
 <script>

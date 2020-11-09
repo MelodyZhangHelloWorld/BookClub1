@@ -1,7 +1,7 @@
 <template>
   <div class="shelf">
-    <h1>{{ msg2 }}</h1>
-    <h2>Type In Your Search Term</h2>
+    
+   
  
 <form v-on:submit.prevent="getResult(query)">
       <input type="text" placeholder="press enter to search" v-model="query" />
