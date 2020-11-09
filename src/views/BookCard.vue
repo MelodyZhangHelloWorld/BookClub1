@@ -2,7 +2,7 @@
 <div >
 
  <b-row align-h="center" class="m-3">
-       <b-col cols=10 align-h="center"><!--  major -->
+       <b-col cols=9 align-h="center"><!--  major -->
 
    <b-card  class="m-3" id="bookcard">
       <b-row  align-v="start" > <!-- image location-->

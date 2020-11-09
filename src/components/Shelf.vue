@@ -15,18 +15,27 @@
   </li> -->
 
 
+<!-- <b-col md="10" >
 <book-info 
         :book-list = "bookList" 
-  /> <!----->
+  /> 
+</b-col> | <b-col md="2" > </b-col> -->
 
+
+
+<book-info 
+        :book-list = "bookList" 
+  /> 
 
   </div>
+
+  
 </template>
 
 <script>
 
 import axios from 'axios';
-// import Vue from 'vue';
+
 import BookInfo from "./BookInfo.vue";
 
 export default {
@@ -37,7 +46,7 @@ export default {
   },
 
   props: {
-    msg2: String
+ 
   },
   data(){ //?
     return{
