@@ -7,7 +7,7 @@
    <b-card  class="m-3" id="bookcard">
       <b-row  align-v="start" > <!-- image location-->
 
-        <b-col md="2"> <!-- **--><!-- image-->
+        <b-col md="2" class="mr-3"> <!-- **--><!-- image-->
         <img :src="imageLink" alt="Image N/A"
         style="width:10rem"
         class="m-2"

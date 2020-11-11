@@ -13,7 +13,7 @@
 
     :imageLink="book.volumeInfo.imageLinks==null?altImage:book.volumeInfo.imageLinks.thumbnail"
     
-    :description="book.volumeInfo.description==null?'No description available...':book.volumeInfo.description"
+    :description="book.volumeInfo.description==null?' No description available...':book.volumeInfo.description"
 
     />
     
