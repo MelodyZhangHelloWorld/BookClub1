@@ -5,8 +5,9 @@
     <h1>Melody's Book Club</h1>
     </div>   
     <div id="nav">
-      <router-link to="/">Event</router-link> |
-      <router-link to="/about">Shelf</router-link>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">Shelf</router-link> | 
+      <router-link to="/event">Event</router-link>
     </div>
     <router-view/>
   </div>
