@@ -20,13 +20,13 @@
         </b-navbar-nav>
 
         <!-- Right aligned nav items *** -->
-        <b-navbar-nav class="ml-auto mr-4">
+        <b-navbar-nav class="ml-auto mr-3">
 
-      <b-nav-item class="ml-auto mr-3" to="/">Home</b-nav-item>
+      <b-nav-item class="mr-3" to="/">Home</b-nav-item>
 
-    <b-nav-item class="ml-auto mr-3" to="/about">Shelf</b-nav-item>
+    <b-nav-item class="mr-3" to="/about">Shelf</b-nav-item>
 
-     <b-nav-item class="ml-auto mr-3" to="/event">Event</b-nav-item>
+     <b-nav-item class="mr-3" to="/event">Event</b-nav-item>
 
 
         </b-navbar-nav>
