@@ -1,5 +1,5 @@
 <template>
-  <div class="event">
+  <div class="event m-3 ">
       <h1>Event Page</h1>
 
   </div>
@@ -10,7 +10,7 @@
 export default {
     name: 'Event',
     components: {
-        
+
     }
 
 }

@@ -51,7 +51,7 @@
 
        <b-row align-h="end">
            <b-button  variant="primary" size="sm" class="mr-3 mt-2">
-Comment </b-button><!-- https://bootstrap-vue.org/docs/reference/color-variants#color-variants-and-css-class-mapping -->
+Details </b-button><!-- https://bootstrap-vue.org/docs/reference/color-variants#color-variants-and-css-class-mapping -->
        </b-row>
 
 

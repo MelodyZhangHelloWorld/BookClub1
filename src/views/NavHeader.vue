@@ -1,54 +1,34 @@
 <template>
  <div>
  
-
+<header>
+  
        <b-navbar toggleable="lg" type="dark" variant="info">
   
-
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-      <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav>
-          <b-nav-item to="/">Home</b-nav-item>
-          <b-nav-item to="/about">About</b-nav-item>
+      <b-collapse  id="nav-collapse" is-nav>
+
+        <b-navbar-nav class="ml-5">
+
+         <h1><b-nav-item id="webTitle" to="/">Book Club</b-nav-item></h1>
+   
         </b-navbar-nav>
 
-        <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto">
+        <!-- Right aligned nav items *** -->
+        <b-navbar-nav class="ml-auto mr-4">
+
+    <b-nav-item class="ml-auto mr-5" to="/about">Shelf</b-nav-item>
+
+     <b-nav-item class="ml-auto mr-5" to="/event">Event</b-nav-item>
 
 
-          <!-- <b-nav-form @submit.prevent="search">
-            <b-form-input
-              size="sm"
-              class="mr-sm-2"
-              placeholder="Search"
-              v-model="searchText"
-            ></b-form-input>
-            <b-button size="sm" class="my-2 my-sm-0" type="submit"
-              >Search</b-button
-            >
-          </b-nav-form> -->
-
-          <!-- <b-nav-item-dropdown text="Lang" right>
-            <b-dropdown-item href="#">EN</b-dropdown-item>
-            <b-dropdown-item href="#">ES</b-dropdown-item>
-            <b-dropdown-item href="#">RU</b-dropdown-item>
-            <b-dropdown-item href="#">FA</b-dropdown-item>
-          </b-nav-item-dropdown>-->
-
-          <!-- <b-nav-item-dropdown right> -->
-          <!-- Using 'button-content' slot -->
-          <!-- <template v-slot:button-content>
-              <em>User</em>
-            </template>
-            <b-dropdown-item href="#">Profile</b-dropdown-item>
-            <b-dropdown-item href="#">Sign Out</b-dropdown-item>
-          </b-nav-item-dropdown>-->
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
 
 
+</header>
 
   
   </div>
@@ -61,6 +41,26 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+#webTitle
+{
+  
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
+}
+
+#nav-collapse {
+  font-size: x-large;
+  color: red;
+
+
+}
+#nav-collapse 
+a.router-link-exact-active{
+
+   color: white;
+    
+}
 
 </style>

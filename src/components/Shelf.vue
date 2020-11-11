@@ -1,11 +1,13 @@
 <template>
-  <div class="shelf">
+  <div class="shelf m-3">
     
    
  
-<form v-on:submit.prevent="getResult(query)">
+<b-row align-h="center">
+  <form v-on:submit.prevent="getResult(query)">
       <input type="text" placeholder="press enter to search" v-model="query" />
     </form> 
+</b-row>
     
 
 
