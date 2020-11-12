@@ -2,30 +2,31 @@
 <div >
 
  <b-row align-h="center" class="m-3">
-       <b-col cols=9 align-h="center"><!--  major -->
+       <b-col cols=8 align-h="center"><!--  major -->
 
    <b-card  class="m-3" id="bookcard">
       <b-row  align-v="start" > <!-- image location-->
 
-        <b-col md="2" class="mr-3"> <!-- **--><!-- image-->
+        <b-col md="2" > <!-- **--><!-- image-->
         <img :src="imageLink" alt="Image N/A"
-        style="width:10rem"
+        style="width:8rem"
         class="m-2"
         >
 
      </b-col>
 
      <b-col 
-     class="ml-4 mr-2 mt-2" id="bookcardText" > <!-- text-info -->  
-       <b-row class="mb-2">
-         <b-col align-h="start" id="bookTitle">  <b> {{title}} </b>  </b-col>
+     class="ml-4 mr-2 mt-1" id="bookcardText" > <!-- text-info -->  
+       
+       <b-row class="mb-2" align-v="center">
+         <b-col cols=8 align-h="start" id="bookTitle">  <b> {{title}} </b>  </b-col>
           <b-col align-h="start"> {{author}} </b-col>  
        
        </b-row>
       
 
        <b-row >
-         <b-col align-h="start"> {{category}} </b-col>
+         <b-col cols=8 align-h="start"> {{category}} </b-col>
          <b-col align-h="start"> {{lang}}</b-col>
        </b-row>
 
@@ -36,7 +37,7 @@
               <b>Description:</b>
             <b-card-text>
          
-          {{ description}}
+           {{ description  }} 
             </b-card-text>
              
        </b-row>
