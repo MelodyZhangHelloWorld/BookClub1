@@ -8,22 +8,6 @@
       <input type="text" placeholder="press enter to search" v-model="query" />
     </form> 
 </b-row>
-    
-
-
-
-<!-- <li v-for="book in bookList" :key="book.id">
-    {{ book.volumeInfo.title }}
-  </li> -->
-
-
-<!-- <b-col md="10" >
-<book-info 
-        :book-list = "bookList" 
-  /> 
-</b-col> | <b-col md="2" > </b-col> -->
-
-
 
 <book-info 
         :book-list = "bookList" 
