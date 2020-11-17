@@ -1,7 +1,15 @@
 <template>
   <div class="shelf m-3">
     
-   
+   <hr>
+        test for Vuex
+        <ul>
+          <li v-for ="book in getBooks" :key="book.id" >
+            {{ book.volumeInfo.title}}
+
+          </li>
+        </ul>
+   <hr>
  
 <b-row align-h="center">
   <form v-on:submit.prevent="getResult(query)">
@@ -36,35 +44,42 @@ export default {
   },
   data(){ //?
     return{
-      msg3: "Shelf.vue",
+     
       query: '',
       results: '',
       itemList:'', //？
 
       bookList: []
-
-
     }
   },
+ /* created() {
+console.log (this.$store.getters.books);
+  }, */
+  computed:{
+      getBooks(){
+        
+        return this.$store.getters.books;
+      }
+  },
+
   methods: {
     getResult(query) {
 
 const apiKey = "AIzaSyDjKIA2LWHZXaUbsEudEL3VTiPc4-OzBOU";
  
- console.log(query);
+ // console.log(query);
 
  axios.get(
    //search for particular author
    'https://www.googleapis.com/books/v1/volumes?q=inauthor:'+query+'&orderBy=relevance&key='+apiKey).then(response => {
      
-     console.log(response.data);
+   //  console.log(response.data);
      
-  //  itemList = response.data.items;
+    // console.log( response.data.items[0].volumeInfo);
 
-     console.log( response.data.items[0].volumeInfo);
+     this.bookList = response.data.items;  //*** VUEX
+      this.$store.dispatch('saveBookData', this.bookList);
 
-     this.bookList = response.data.items;  //***
-      
     console.log( this.bookList);
 
      }
