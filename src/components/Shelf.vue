@@ -3,12 +3,13 @@
     
    <hr>
         test for Vuex
-        <ul>
-          <li v-for ="book in getBooks" :key="book.id" >
+        <ul v-if="hasBooks" >
+          <li v-for ="book in getSavedBooks" :key="book.id" >
             {{ book.volumeInfo.title}}
 
           </li>
         </ul>
+        <h3 v-else>No books found..</h3>
    <hr>
  
 <b-row align-h="center">
@@ -18,8 +19,8 @@
 </b-row>
 
 <book-info 
-        :book-list = "bookList" 
-  /> 
+        :book-list = "getSavedBooks"  
+  />  <!-- data from Vuex, not directly from saved array -->
 
   </div>
 
@@ -56,9 +57,11 @@ export default {
 console.log (this.$store.getters.books);
   }, */
   computed:{
-      getBooks(){
-        
+      getSavedBooks(){   
         return this.$store.getters.books;
+      },
+      hasBooks(){
+        return this.$store.getters.hasBooks;
       }
   },
 

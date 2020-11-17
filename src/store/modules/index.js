@@ -4,26 +4,11 @@ import getters from './getters.js'
 
 
 export default{
-   // namespaced: true, ??
-    state(){
+   
+    state(){  //data()?
         return{
             books: [
-                {
-                    id: 'book1',
-                    title: 'Code',
-                    author: 'someAuthor'
-                    
-                },
-                {
-                    id: 'book2',
-                    title: '1948',
-                    author: 'someAuthor2'
-                    
-                }
-
-
             ]
-
         }
 
     },

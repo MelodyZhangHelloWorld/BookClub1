@@ -3,7 +3,6 @@ export default {
 
         //data is the correct bookList data
         apiData.commit('saveBookData', data);
-
-    }
+    } // --> to mutations.js
 
 };
