@@ -1,8 +1,9 @@
 <template>
 
-       
+ 
+         
 <b-col  cols="6" md="4">
-       <b-card id="bookcard"  class="m-3" >
+       <b-card id="bookcard"  class="m-3" @click="someMethod(title)">
       <b-row  align-v="start" > 
 
         <b-col class="m-2" > <!-- **--><!-- image-->
@@ -72,6 +73,7 @@
 
 </b-col>
   
+
 </template>
 
 <script>
@@ -79,6 +81,12 @@ export default {
 
 
   props: ['title', 'author','category','lang','imageLink','description'],
+
+   methods: {
+      someMethod(title){
+        alert("Book title: " + title)
+      }
+  }
 
 
 };
@@ -90,18 +98,15 @@ export default {
   font-family:  Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(243, 239, 233);
-  
-  
- 
-}
-#bookcardText{
-  font-family: Inconsolata;
-   text-align: left;
-   color: rgb(29, 28, 28);
-   font-size: large;
+  background-color: rgb(243, 239, 233); 
 }
 
+
+#bookcard:hover{
+   background-color:  rgb(253, 242, 225);
+   cursor: pointer;
+ }
+ 
 #bookTitle{
   font-size: large;
 }

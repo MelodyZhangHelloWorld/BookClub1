@@ -4,7 +4,8 @@
 <b-container >  <!-- this is created to compare the sm/md tags! turned out md is better-->
 
 <b-row align-v="center">
-        <BookCard
+  
+    <BookCard
     v-for="book in bookList"
     :key="book.volumeInfo.id"
     :title="book.volumeInfo.title"
