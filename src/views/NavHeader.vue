@@ -24,7 +24,7 @@
 
       <b-nav-item class="mr-3" to="/">Home</b-nav-item>
 
-    <b-nav-item class="mr-3" to="/about">Shelf</b-nav-item>
+    <b-nav-item class="mr-3" to="/shelf">Shelf</b-nav-item>
 
      <b-nav-item class="mr-3" to="/event">Event</b-nav-item>
 

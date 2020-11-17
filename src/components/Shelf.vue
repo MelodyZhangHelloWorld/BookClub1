@@ -64,9 +64,8 @@ const apiKey = "AIzaSyDjKIA2LWHZXaUbsEudEL3VTiPc4-OzBOU";
      console.log( response.data.items[0].volumeInfo);
 
      this.bookList = response.data.items;  //***
-
       
-  console.log( this.bookList);
+    console.log( this.bookList);
 
      }
      
