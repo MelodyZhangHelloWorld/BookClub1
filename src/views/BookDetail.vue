@@ -7,9 +7,9 @@
    <b-card  class="m-3" id="bookdetail">
       <b-row  align-v="start" > <!-- image location-->
 
-        <b-col md="2" > <!-- **--><!-- image-->
-        <img :src="imageLink" alt="Image N/A"
-        style="width:8rem"
+        <b-col md="2" class="mr-2"> <!-- **--><!-- image-->
+        <img :src=imageLink alt="Image N/A"
+        style="width:10rem"
         class="m-2"
         >
 
@@ -85,41 +85,53 @@ export default {
     data(){
       return {
       selectedBook : null,
-       // altImage: "https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png", //"../assets/imgNA.jpg",
-     // cateMessage: 'Category not clear..'
+
+      title:'',
+      author:'',
+      category:'',
+      lang:'',
+      imageLink:'',
+      description:'',
+      hasComment: false,
+
+      comments: [],
+      comment: { 
+        cid:'', //time+bookid
+        userName:'',
+        cContent:'', //comment_content
+      }
+
       }
   },
 
 
   created(){  
-  
     this.selectedBook = this.$store.getters.books.find(
-      (book) => book.id === this.id    
-    );
+      (book) => book.id === this.id  
+        );
    // console.log(this.selectedBook);
-  },
+   
+    const altImage = 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png'; //"../assets/imgNA.jpg";
+    
+   this.imageLink = this.selectedBook.volumeInfo.imageLinks==null? altImage:this.selectedBook.volumeInfo.imageLinks.thumbnail;
 
-  computed: {
-    imageLink(){
-      return this.selectedBook.volumeInfo.imageLinks==null? "https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png" :this.selectedBook.volumeInfo.imageLinks.thumbnail ;
-    },
-    title(){
-      return this.selectedBook.volumeInfo.title;
-    },
-    author(){
-      return this.selectedBook.volumeInfo.author;
-    },
-    category(){
-      return this.selectedBook.volumeInfo.categories==undefined?'Category not clear..':this.selectedBook.volumeInfo.categories[0]
-    },
-    lang() {
-      return this.selectedBook.volumeInfo.language;
-      //** more to specify */
-    },
-    description(){
-      return this.selectedBook.volumeInfo.description==null?' No description available...':this.selectedBook.volumeInfo.description
-    },
-  }
+   this.title = this.selectedBook.volumeInfo.title;
+
+   this.author = this.selectedBook.volumeInfo.author;
+
+   this.category = this.selectedBook.volumeInfo.categories==undefined?'Category not clear..':this.selectedBook.volumeInfo.categories[0];
+
+   this.lang = this.selectedBook.volumeInfo.language;
+
+            if(this.lang === "zh-CN"){
+              this.lang = "simplified Chinese";
+            } else if (this.lang === "zh-TW") {
+               this.lang = "traditional Chinese";}
+ 
+   this.description = this.selectedBook.volumeInfo.description==null?' No description available...':this.selectedBook.volumeInfo.description;
+
+
+  },
  
 };
 </script>
