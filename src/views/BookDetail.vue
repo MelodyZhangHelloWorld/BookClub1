@@ -95,7 +95,8 @@ export default {
       hasComment: false,
 
       comments: [],
-      comment: { 
+      comment: {
+        bid:'', 
         cid:'', //time+bookid
         userName:'',
         cContent:'', //comment_content

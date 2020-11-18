@@ -2,14 +2,16 @@
   <div class="shelf m-3">
     
    <hr>
-        test for Vuex
-        <ul v-if="hasBooks" >
-          <li v-for ="book in getSavedBooks" :key="book.id" >
-            {{ book.volumeInfo.title}}
+        test for Comment
 
-          </li>
+        <!-- <ul v-if="hasBooks" >
+          <li v-for ="book in getSavedBooks" :key="book.id" >
+            {{ book.volumeInfo.title}} </li>
+
+          
         </ul>
-        <h3 v-else>No books found..</h3>
+        <h3 v-else>No books found..</h3> -->
+        <Comment />
    <hr>
  
 <b-row align-h="center">
@@ -32,12 +34,14 @@
 import axios from 'axios';
 
 import BookInfo from "./BookInfo.vue";
+import Comment from "./Comment.vue"; //temp
 
 export default {
   name: 'Shelf',
 
   components:{  //**
-    BookInfo
+    BookInfo,
+    Comment //temp
   },
 
   props: {
