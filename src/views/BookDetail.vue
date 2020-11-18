@@ -25,7 +25,7 @@
        </b-row>
       
 
-       <b-row >
+        <b-row >
          <b-col cols=8 align-h="start"> {{category}} </b-col>
          <b-col align-h="start"> {{lang}}</b-col>
        </b-row>
@@ -42,7 +42,7 @@
              
        </b-row>
           
-        </div>
+        </div> 
 
 
      </b-col>
@@ -52,7 +52,7 @@
 
        <b-row align-h="end">
            <b-button  variant="primary" size="sm" class="mr-3 mt-2">
-Details </b-button><!-- https://bootstrap-vue.org/docs/reference/color-variants#color-variants-and-css-class-mapping -->
+Comment </b-button><!-- https://bootstrap-vue.org/docs/reference/color-variants#color-variants-and-css-class-mapping -->
        </b-row>
 
 
@@ -63,26 +63,12 @@ Details </b-button><!-- https://bootstrap-vue.org/docs/reference/color-variants#
      
     
        </b-row>
-
-    
-   
+  
     </div>
-
-
    </b-card>
-
-  
-  
   </b-col>
 
   </b-row>
-
-
-
-<!---->
-
-
-
 
 </div>
   <!---->
@@ -92,7 +78,48 @@ Details </b-button><!-- https://bootstrap-vue.org/docs/reference/color-variants#
 
 <script>
 export default {
-  props: ['title', 'author','category','lang','imageLink','description'],
+
+
+  props: ['id'],
+
+    data(){
+      return {
+      selectedBook : null,
+       // altImage: "https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png", //"../assets/imgNA.jpg",
+     // cateMessage: 'Category not clear..'
+      }
+  },
+
+
+  created(){  
+  
+    this.selectedBook = this.$store.getters.books.find(
+      (book) => book.id === this.id    
+    );
+   // console.log(this.selectedBook);
+  },
+
+  computed: {
+    imageLink(){
+      return this.selectedBook.volumeInfo.imageLinks==null? "https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png" :this.selectedBook.volumeInfo.imageLinks.thumbnail ;
+    },
+    title(){
+      return this.selectedBook.volumeInfo.title;
+    },
+    author(){
+      return this.selectedBook.volumeInfo.author;
+    },
+    category(){
+      return this.selectedBook.volumeInfo.categories==undefined?'Category not clear..':this.selectedBook.volumeInfo.categories[0]
+    },
+    lang() {
+      return this.selectedBook.volumeInfo.language;
+      //** more to specify */
+    },
+    description(){
+      return this.selectedBook.volumeInfo.description==null?' No description available...':this.selectedBook.volumeInfo.description
+    },
+  }
  
 };
 </script>

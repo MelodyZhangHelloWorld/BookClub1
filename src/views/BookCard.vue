@@ -3,7 +3,8 @@
  
          
 <b-col  cols="6" md="4">
-       <b-card id="bookcard"  class="m-3" @click="someMethod(title)">
+       <b-card id="bookcard"  class="m-3" @click="someMethod(id)"
+       >
       <b-row  align-v="start" > 
 
         <b-col class="m-2" > <!-- **--><!-- image-->
@@ -28,63 +29,24 @@
      </b-col>
          
           
-  </b-card-text>
-       <!-- text-info class="ml-4 mr-2 mt-1" id="bookcardText"-->  
-       
-       <!-- <b-row class="mb-2" align-v="center">
-         <b-col cols=8 align-h="start" id="bookTitle">  <b> {{title}} </b>  </b-col>
-          <b-col align-h="start"> {{author}} </b-col>  
-       
-       </b-row>
-      
-
-       <b-row >
-         <b-col cols=8 align-h="start"> {{category}} </b-col>
-         <b-col align-h="start"> {{lang}}</b-col>
-       </b-row> -->
-
-
-        <!-- <div class="mt-1 ml-3 mr-3" >
-          
-            <b-row >
-              <b>Description:</b>
-            <b-card-text>
-         
-           {{ description  }} 
-            </b-card-text>
-             
-       </b-row>
-          
-        </div> -->
-
-
+  </b-card-text>      
      </b-col>
-
-  
      </b-row>
-
-       
-
    </b-card>
-
-  
-  
- 
-
 </b-col>
   
 
 </template>
 
 <script>
+
 export default {
-
-
-  props: ['title', 'author','category','lang','imageLink','description'],
+  props: ['id','title', 'author','category','lang','imageLink','description'],
 
    methods: {
-      someMethod(title){
-        alert("Book title: " + title)
+      someMethod(id){
+        alert("Book key: " + id);
+        this.$router.push({ path: '/detail/'+id }) //https://router.vuejs.org/guide/essentials/navigation.html
       }
   }
 

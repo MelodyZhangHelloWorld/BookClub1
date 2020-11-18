@@ -7,7 +7,8 @@
   
     <BookCard
     v-for="book in bookList"
-    :key="book.volumeInfo.id"
+    :key="book.id"
+    :id='book.id'
     :title="book.volumeInfo.title"
     :author="book.volumeInfo.authors[0]"
     :category="book.volumeInfo.categories==undefined?cateMessage:book.volumeInfo.categories[0]"
@@ -19,15 +20,8 @@
 
     />
 </b-row>
-
 </b-container>
-
-
- 
-
 </template>
-
-
 
 <script>
 
@@ -45,7 +39,8 @@ export default {
     }
   },
 
-  props: ['bookList']
+  props: ['bookList'],
+
   
 };
 </script>

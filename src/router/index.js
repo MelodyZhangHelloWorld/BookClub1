@@ -23,7 +23,7 @@ const routes = [
 
   },
   {
-    path: '/shelf/:id',
+    path: '/detail/:id',
     name: BookDetail,
     component: BookDetail,
     props: true
