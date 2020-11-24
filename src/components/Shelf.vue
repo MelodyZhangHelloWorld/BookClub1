@@ -11,7 +11,7 @@
           
         </ul>
         <h3 v-else>No books found..</h3> -->
-        <Comment />
+        Comment form removed
    <hr>
  
 <b-row align-h="center">
@@ -34,14 +34,14 @@
 import axios from 'axios';
 
 import BookInfo from "./BookInfo.vue";
-import Comment from "./Comment.vue"; //temp
+
 
 export default {
   name: 'Shelf',
 
   components:{  //**
-    BookInfo,
-    Comment //temp
+    BookInfo
+ 
   },
 
   props: {

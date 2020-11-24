@@ -1,5 +1,5 @@
 <template>
-<div >
+<div class="mb-5">
 
  <b-row align-h="center" class="m-3">
        <b-col cols=8 align-h="center"><!--  major -->
@@ -60,15 +60,16 @@ Comment </b-button><!-- https://bootstrap-vue.org/docs/reference/color-variants#
     <div class="switchClass "> <!---->
      
     <b-row align-h="center">
-     
-    
-       </b-row>
+     </b-row>
   
     </div>
-   </b-card>
+   </b-card>      
   </b-col>
-
   </b-row>
+  <hr>
+       <Comment 
+       :bid = 'id'
+       />
 
 </div>
   <!---->
@@ -77,10 +78,14 @@ Comment </b-button><!-- https://bootstrap-vue.org/docs/reference/color-variants#
 </template>
 
 <script>
+import Comment from '../components/Comment.vue'
 export default {
 
 
   props: ['id'],
+  components: {
+    Comment
+  },
 
     data(){
       return {
@@ -94,13 +99,13 @@ export default {
       description:'',
       hasComment: false,
 
-      comments: [],
+      /*comments: [],
       comment: {
         bid:'', 
         cid:'', //time+bookid
         userName:'',
         cContent:'', //comment_content
-      }
+      } */
 
       }
   },

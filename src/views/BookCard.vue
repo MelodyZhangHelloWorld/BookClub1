@@ -5,6 +5,7 @@
 <b-col  cols="6" md="4">
        <b-card id="bookcard"  class="m-3" @click="someMethod(id)"
        >
+       
       <b-row  align-v="start" > 
 
         <b-col class="m-2" > <!-- **--><!-- image-->
