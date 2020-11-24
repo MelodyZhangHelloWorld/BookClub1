@@ -3,7 +3,7 @@
  
          
 <b-col  cols="6" md="4">
-       <b-card id="bookcard"  class="m-3" @click="someMethod(id)"
+       <b-card id="bookcard"  class="m-3" @click="toDetailPage(id)"
        >
        
       <b-row  align-v="start" > 
@@ -27,6 +27,9 @@
      
      <b-row> {{category}}</b-row>
      <b-row> {{lang}}</b-row>
+     <!---->
+       <b-row> {{id}}</b-row>
+     <!---->
      </b-col>
          
           
@@ -45,7 +48,7 @@ export default {
   props: ['id','title', 'author','category','lang','imageLink','description'],
 
    methods: {
-      someMethod(id){
+      toDetailPage(id){
         alert("Book key: " + id);
         this.$router.push({ path: '/detail/'+id }) //https://router.vuejs.org/guide/essentials/navigation.html
       }

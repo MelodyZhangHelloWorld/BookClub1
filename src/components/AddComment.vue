@@ -71,6 +71,8 @@
 
 
 <script>
+
+import db from './firebaseInit'; 
  export default {
    props: ['bid'], //bookId
 
@@ -79,7 +81,7 @@
           //
          comment:{
            bid: this.bid,
-           cid: (new Date()).getTime(),
+           cid: '',
            preferredName:'',
            commentBody: ''
          } ,  
@@ -97,6 +99,21 @@
       onSubmit(evt) {
         evt.preventDefault()
         alert(JSON.stringify(this.comment))
+
+        this.comment.cid = (new Date()).getTime();
+      db.collection('commentList').doc(this.comment.bid+this.comment.cid).set({
+
+
+            cid: this.comment.cid,
+            name: this.comment.preferredName, 
+            comment: this.comment.commentBody,
+             
+      })
+          console.log(this.comment.commentBody )
+
+
+
+
       },
       onReset(evt) {
         evt.preventDefault()
