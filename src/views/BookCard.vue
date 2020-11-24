@@ -27,9 +27,7 @@
      
      <b-row> {{category}}</b-row>
      <b-row> {{lang}}</b-row>
-     <!---->
-       <b-row> {{id}}</b-row>
-     <!---->
+    
      </b-col>
          
           
