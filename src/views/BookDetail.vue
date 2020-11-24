@@ -1,8 +1,9 @@
 <template>
+
 <div class="mb-5">
 
  <b-row align-h="center" class="m-3">
-       <b-col cols=8 align-h="center"><!--  major -->
+       <b-col cols=10 align-h="center"><!--  major -->
 
    <b-card  class="m-3" id="bookdetail">
       <b-row  align-v="start" > <!-- image location-->
@@ -50,10 +51,14 @@
   
      </b-row>
 
-       <b-row align-h="end">
+     <!--
+
+  <b-row align-h="end">
            <b-button  variant="primary" size="sm" class="mr-3 mt-2">
-Comment </b-button><!-- https://bootstrap-vue.org/docs/reference/color-variants#color-variants-and-css-class-mapping -->
+Comment </b-button>
        </b-row>
+
+     --><!-- https://bootstrap-vue.org/docs/reference/color-variants#color-variants-and-css-class-mapping -->
 
 
 
@@ -66,10 +71,10 @@ Comment </b-button><!-- https://bootstrap-vue.org/docs/reference/color-variants#
    </b-card>      
   </b-col>
   </b-row>
-  <hr>
-       <Comment 
-       :bid = 'id'
-       />
+  
+    
+         <AddComment  :bid = 'id' />
+      
 
 </div>
   <!---->
@@ -78,13 +83,13 @@ Comment </b-button><!-- https://bootstrap-vue.org/docs/reference/color-variants#
 </template>
 
 <script>
-import Comment from '../components/Comment.vue'
+import AddComment from '../components/AddComment.vue'
 export default {
 
 
   props: ['id'],
   components: {
-    Comment
+    AddComment
   },
 
     data(){
@@ -148,7 +153,7 @@ export default {
   font-family:  Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(243, 239, 233);
+  background-color: rgb(245, 240, 233);
   
   
  

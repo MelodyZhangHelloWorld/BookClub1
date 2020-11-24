@@ -1,13 +1,13 @@
 <template>
   <div>
-   <b-container>
+   
 <b-row  align-h="center" class="m-3">
-  <b-col cols="8" > <!--md="6" -->
+  <b-col md="8" > <!--md="6" -->
 
     <b-card>
 <b-form @submit="onSubmit" @reset="onReset" v-if="show">
 
-     <b-col md="14">
+     <b-col md="12">
 
         <b-form-group
         id="input-group-1"
@@ -27,7 +27,7 @@
      
  
 
-  <b-col md="14">
+  <b-col md="12">
         <b-row>
 
           <b-col md="8">
@@ -65,7 +65,7 @@
   </b-col>
 </b-row>
 
-   </b-container>
+  
   </div>
 </template>
 
