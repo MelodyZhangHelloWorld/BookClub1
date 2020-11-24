@@ -1,9 +1,9 @@
 <template>
 
-<div class="mb-5">
+<div class="mb-2">
 
- <b-row align-h="center" class="m-3">
-       <b-col cols=10 align-h="center"><!--  major -->
+ <b-row align-h="center" class="m-1">
+       <b-col cols=8 align-h="center"><!--  major -->
 
    <b-card  class="m-3" id="bookdetail">
       <b-row  align-v="start" > <!-- image location-->
@@ -45,56 +45,50 @@
           
         </div> 
 
-
      </b-col>
-
   
      </b-row>
-
-     <!--
-
-  <b-row align-h="end">
-           <b-button  variant="primary" size="sm" class="mr-3 mt-2">
-Comment </b-button>
-       </b-row>
-
-     --><!-- https://bootstrap-vue.org/docs/reference/color-variants#color-variants-and-css-class-mapping -->
-
-
-
-    <div class="switchClass "> <!---->
-     
-    <b-row align-h="center">
-     </b-row>
-  
-    </div>
    </b-card>      
   </b-col>
   </b-row>
   
-    
-         <AddComment  :bid = 'id' />
+         
+ <div v-if='hasComment'>  
+    <CommentBase     
+        v-for="comment in commentList"
+        :key= "comment.cid"
+        :comment = "comment"    /> 
+
+   </div> <h3 v-else>No comments found.. Add your comment!</h3>  
       
+      <AddComment  :bid = 'id' />
 
 </div>
-  <!---->
 
   
 </template>
 
 <script>
-import AddComment from '../components/AddComment.vue'
+import AddComment from '../components/AddComment.vue' 
+import CommentBase from '../components/CommentBase.vue'
+
+import db from '../components/firebaseInit' 
+
+
 export default {
 
-
   props: ['id'],
+
   components: {
-    AddComment
+    AddComment,
+    CommentBase
   },
 
     data(){
       return {
       selectedBook : null,
+      hasComment: false,
+      commentList: [],  //*
 
       title:'',
       author:'',
@@ -102,15 +96,13 @@ export default {
       lang:'',
       imageLink:'',
       description:'',
-      hasComment: false,
-
-      /*comments: [],
-      comment: {
+     
+    //comment  ?
         bid:'', 
-        cid:'', //time+bookid
-        userName:'',
-        cContent:'', //comment_content
-      } */
+        cid:'', 
+        preferredName:'',
+        commentBody:'', 
+      
 
       }
   },
@@ -120,7 +112,6 @@ export default {
     this.selectedBook = this.$store.getters.books.find(
       (book) => book.id === this.id  
         );
-   // console.log(this.selectedBook);
    
     const altImage = 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png'; //"../assets/imgNA.jpg";
     
@@ -142,7 +133,45 @@ export default {
    this.description = this.selectedBook.volumeInfo.description==null?' No description available...':this.selectedBook.volumeInfo.description;
 
 
+    //getting bookComment if exists
+          
+      /*https://cloud.google.com/firestore/docs/query-data/queries */
+      db.collection('commentList').where('bid', '==', this.id).get().then(
+       (snapshot) => {
+        snapshot.docs.forEach (
+          doc => {
+             console.log(doc.data());
+            
+            this.bid=doc.data().bid;
+            this.cid=doc.data().cid;
+            this.preferredName=doc.data().name;
+            this.commentBody=doc.data().comment;
+
+            const comment = {
+              bid: this.bid,
+              cid: this.cid,
+              preferredName: this.preferredName,
+              commentBody: this.commentBody
+            }
+
+             this.commentList.push(comment);
+          }
+        )
+          //ASYNC*** -- update WITHIN then
+          if(this.commentList.length > 0) {
+              this.hasComment = true;       
+            }
+   
+        }
+      )
   },
+   
+   methods: {
+      //AddComment line 111
+
+
+
+   }
  
 };
 </script>

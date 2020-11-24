@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="m-2">
    
-<b-row  align-h="center" class="m-3">
+<b-row  align-h="center" class="m-3 mt-5">
   <b-col md="8" > <!--md="6" -->
 
     <b-card>
-<b-form @submit="onSubmit" @reset="onReset" v-if="show">
+<b-form @submit="addComment" @reset="onReset" v-if="show">
 
      <b-col md="12">
 
@@ -58,9 +58,9 @@
     </b-form>
 </b-card>
 
-<b-card class="mt-3" header="Form Data Result">
+<!-- <b-card class="mt-3" header="Form Data Result">
       <pre class="m-0">{{ comment }}</pre>
-    </b-card>
+    </b-card> -->
 
   </b-col>
 </b-row>
@@ -76,45 +76,42 @@ import db from './firebaseInit';
  export default {
    props: ['bid'], //bookId
 
+
     data() {
       return {
-          //
+
          comment:{
            bid: this.bid,
            cid: '',
            preferredName:'',
            commentBody: ''
          } ,  
+         
+          hasComment: false,
              
         show: true // 
       }
     },
-    computed:{
-      
-       
-      
-    },
 
     methods: {
-      onSubmit(evt) {
+      
+      addComment(evt) {
         evt.preventDefault()
-        alert(JSON.stringify(this.comment))
-
+      
         this.comment.cid = (new Date()).getTime();
-      db.collection('commentList').doc(this.comment.bid+this.comment.cid).set({
+      
+      db.collection('commentList').doc(this.comment.cid + this.comment.bid).set({
 
-
+            bid: this.comment.bid,
             cid: this.comment.cid,
             name: this.comment.preferredName, 
-            comment: this.comment.commentBody,
-             
+            comment: this.comment.commentBody,             
       })
-          console.log(this.comment.commentBody )
 
-
-
-
+      //emit to BookDetail to update commentList!!!!!
+       
       },
+
       onReset(evt) {
         evt.preventDefault()
         // Reset our form values
