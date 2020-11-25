@@ -8,16 +8,16 @@
    <b-card  class="m-3" id="bookdetail">
       <b-row  align-v="start" > <!-- image location-->
 
-        <b-col md="2" class="mr-2"> <!-- **--><!-- image-->
-        <img :src=imageLink alt="Image N/A"
+        <b-col md="3" > <!-- **--><!-- image-->
+        <b-img :src=imageLink fluid alt="Image N/A"
         style="width:10rem"
-        class="m-2"
-        >
+        class="mt-3"
+        />
 
      </b-col>
 
      <b-col 
-     class="ml-4 mr-2 mt-1" id="bookcardText" > <!-- text-info -->  
+     class="ml-2 mr-3 mt-1" id="bookcardText" > <!-- text-info -->  
        
        <b-row class="mb-2" align-v="center">
          <b-col cols=8 align-h="start" id="bookTitle">  <b> {{title}} </b>  </b-col>
@@ -72,7 +72,7 @@
         :key= "comment.cid"
         :comment = "comment"    /> 
 
-   </div> <h3 v-else>No comments found.. Add your comment!</h3>  
+   </div> <h4 v-else>No comments found.. Add your comment!</h4>  
       
       <AddComment  :bid = 'id'
         @add-comment="addComment"

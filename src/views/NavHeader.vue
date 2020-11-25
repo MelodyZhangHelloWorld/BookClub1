@@ -3,24 +3,22 @@
  
 <header>
   
-       <b-navbar toggleable="lg" type="dark" variant="info">
+       <b-navbar  toggleable="md" type="dark" variant="info">
   
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-      <b-collapse  id="nav-collapse" is-nav>
+      <b-collapse  id="nav-collapse" is-nav variant="info">
 
         <b-navbar-nav class="ml-5">
          
          <div id="webTitle">
           <h1> Book Club</h1>
          </div>
-
-       
-   
+            
         </b-navbar-nav>
 
         <!-- Right aligned nav items *** -->
-        <b-navbar-nav class="ml-auto mr-3">
+        <b-navbar-nav class="ml-auto mr-3" >
 
       <b-nav-item class="mr-3" to="/">Home</b-nav-item>
 
@@ -47,7 +45,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
 #webTitle
 {
@@ -61,9 +59,14 @@ export default {
 
 #nav-collapse {
   font-size: large;
-  
+
 
 }
+
+ .navbar.navbar-dark.bg-dark{
+    background-color: #AABB55;
+ }
+
 #nav-collapse 
 a.router-link-exact-active{
 
@@ -72,6 +75,11 @@ a.router-link-exact-active{
    border: 2px solid rgb(177, 200, 214);  
 }
 
+.navbar-custom {
+  
+ background-color: #9d0ac2;
+
+}
 
 
 </style>

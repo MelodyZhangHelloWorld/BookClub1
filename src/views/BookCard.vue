@@ -9,10 +9,11 @@
       <b-row  align-v="start" > 
 
         <b-col class="m-2" > <!-- **--><!-- image-->
-        <img :src="imageLink" alt="Image N/A"
+        <b-img :src="imageLink" 
+        fluid alt="Image N/A"
         style="width:6rem"
        
-        >
+        />
 
      </b-col>
 

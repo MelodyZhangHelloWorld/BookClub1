@@ -35,12 +35,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 10px;
   
 }
+
 
 #nav a {
   font-size:x-large;
@@ -59,6 +56,7 @@ export default {
   position: fixed;
   width: 100%;
   z-index: 1;
-
 }
+
+
 </style>

@@ -14,10 +14,12 @@
    
  <br><br><br><br><br> <!--????-->
  
-<b-row align-h="center">
+<b-row align-h="center" >
   <form v-on:submit.prevent="getResult(query)">
-    Enter Key Word <br>
-      <input type="text" placeholder="press enter to search" v-model="query" />
+    
+      <!-- <input type="text" placeholder="press enter to search" v-model="query" /> -->
+
+      <b-form-input id="searchInput" type="text" placeholder="press enter to search" v-model="query" ></b-form-input>
       
     </form> 
 </b-row>
@@ -30,7 +32,7 @@
         :book-list = "getSavedBooks"  
   />  <!-- data from Vuex, not directly from saved array -->
       </div>
-<p v-else>No books found..</p>
+<h5 class="m-3">Enter <b>Author Name</b> to start..</h5>
 
 
   </div>
