@@ -1,8 +1,8 @@
 <template>
-  <div class="shelf m-3">
+  <div class="shelf m-3">  <!--id="shelf"-->
     
    <hr>
-        test for Comment
+        
 
         <!-- <ul v-if="hasBooks" >
           <li v-for ="book in getSavedBooks" :key="book.id" >
@@ -11,18 +11,27 @@
           
         </ul>
         <h3 v-else>No books found..</h3> -->
-        Comment form removed
+   
    <hr>
  
 <b-row align-h="center">
   <form v-on:submit.prevent="getResult(query)">
+    Enter Key Word <br>
       <input type="text" placeholder="press enter to search" v-model="query" />
+      
     </form> 
 </b-row>
+      
+
+
+      <div v-if="hasBooks" >
 
 <book-info 
         :book-list = "getSavedBooks"  
   />  <!-- data from Vuex, not directly from saved array -->
+      </div>
+<p v-else>No books found..</p>
+
 
   </div>
 

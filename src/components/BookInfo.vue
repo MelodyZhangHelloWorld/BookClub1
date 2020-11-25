@@ -9,14 +9,14 @@
     v-for="book in bookList"
     :key="book.id"
     :id='book.id'
-    :title="book.volumeInfo.title"
-    :author="book.volumeInfo.authors[0]"
+    :title="book.volumeInfo.title==undefined?'?Title':book.volumeInfo.title"
+    :author="book.volumeInfo.authors==undefined?'Author Not Found':book.volumeInfo.authors[0]"
     :category="book.volumeInfo.categories==undefined?cateMessage:book.volumeInfo.categories[0]"
-    :lang="book.volumeInfo.language"
+    :lang="book.volumeInfo.language==undefined?'?Language':book.volumeInfo.language"
 
     :imageLink="book.volumeInfo.imageLinks==null?altImage:book.volumeInfo.imageLinks.thumbnail"
     
-    :description="book.volumeInfo.description==null?' No description available...':book.volumeInfo.description"
+    :description="book.volumeInfo.description==null?'  No description available...':book.volumeInfo.description"
 
     />
 </b-row>
