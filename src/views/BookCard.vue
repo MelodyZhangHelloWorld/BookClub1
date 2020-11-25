@@ -73,7 +73,9 @@ export default {
  
 #bookTitle{
   font-size: large;
+  text-align: center;
 }
+
 
 
 </style>

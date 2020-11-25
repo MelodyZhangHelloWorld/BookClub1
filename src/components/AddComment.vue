@@ -5,7 +5,7 @@
   <b-col md="8" > <!--md="6" -->
 
     <b-card>
-<b-form @submit="addComment" @reset="onReset" v-if="show">
+<b-form @submit="addComment" @reset="clearForm" v-if="show">
 
      <b-col md="12">
 
@@ -109,10 +109,13 @@ import db from './firebaseInit';
       })
 
       //emit to BookDetail to update commentList!!!!!
-       
+
+      
+       this.form.comment = ''
+        this.form.name = ''
       },
 
-      onReset(evt) {
+      clearForm(evt) {
         evt.preventDefault()
         // Reset our form values
         this.form.comment = ''

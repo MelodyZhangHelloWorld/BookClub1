@@ -3,8 +3,17 @@
       <b-row  align-h="center" class="m-3">
   <b-col md="8" > <!--md="6" -->
 
-    <b-card>        <!-- More information -->
-    <h2>  {{ comment.commentBody }}</h2>
+    <b-card id="bookComment">     <!-- More information -->
+   
+    <b-col class="m-2" >
+         <b-card-text>  
+      <p> Comment by  <b>{{ comment.preferredName}}</b> </p>
+      <b>{{ comment.commentBody }} </b>
+
+    </b-card-text>
+
+    </b-col>
+
     </b-card>
 
   </b-col>
@@ -24,6 +33,16 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+
+
+#bookComment {
+
+  text-align: start;
+  font-weight:500;
+  font-size:large;
+ 
+}
 
 </style>
