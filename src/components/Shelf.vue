@@ -1,7 +1,7 @@
 <template>
-  <div class="shelf m-3">  <!--id="shelf"-->
+  <div class="shelf">  <!--id="shelf"-->
     
-   <hr>
+  
         
 
         <!-- <ul v-if="hasBooks" >
@@ -12,7 +12,7 @@
         </ul>
         <h3 v-else>No books found..</h3> -->
    
-   <hr>
+ <br><br><br><br><br> <!--????-->
  
 <b-row align-h="center">
   <form v-on:submit.prevent="getResult(query)">

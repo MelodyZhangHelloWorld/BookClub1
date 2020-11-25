@@ -1,5 +1,6 @@
 <template>
-  <div class="event m-3 ">
+  <div class="event">
+    <br><br><br><br><br>
       <h1>Event Page</h1>
 
   </div>

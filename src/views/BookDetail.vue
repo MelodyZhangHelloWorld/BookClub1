@@ -1,7 +1,7 @@
 <template>
 
 <div class="mb-2">
-
+<br><br><br><br><br>
  <b-row align-h="center" class="m-1">
        <b-col cols=8 align-h="center"><!--  major -->
 
@@ -48,6 +48,19 @@
      </b-col>
   
      </b-row>
+
+<b-row align-h="end">
+  <b-button @click="saveBook"  variant="primary" size="sm" class="mr-3 mt-2">
+ {{ status }} </b-button>
+
+      
+   
+       </b-row>
+
+
+
+
+
    </b-card>      
   </b-col>
   </b-row>
@@ -90,7 +103,10 @@ export default {
       return {
       selectedBook : null,
       hasComment: false,
-      commentList: [],  //*
+      commentList: [],  
+      savedForEvent:false, //
+      savedId:'',
+      status:'Save this book for event',
 
       title:'',
       author:'',
@@ -184,10 +200,18 @@ export default {
         this.commentList.push(newComment);
         console.log(' commentList: ' , this.commentList);
 
+      },
 
-
-
-
+      saveBook(evt){
+        evt.preventDefault();
+        
+          this.savedForEvent = ! this.savedForEvent;
+          console.log(" save this book ", this.id, " ", this.savedForEvent );
+          if(this.savedForEvent){
+            this.status = 'Book saved for event';
+          } else {
+            this.status = 'Save this book for event';
+          } //need to check if 
       }
 
 
@@ -216,7 +240,7 @@ export default {
 }
 
 #bookTitle{
-  
+  text-align: center;
   font-size:x-large;
   
 }

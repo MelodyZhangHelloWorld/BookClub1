@@ -54,4 +54,11 @@ export default {
   border-color: transparent;
   color: #fda32d;
 }
+
+#header {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+
+}
 </style>

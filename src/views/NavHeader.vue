@@ -69,8 +69,9 @@ a.router-link-exact-active{
 
    color: white;
    font-weight: bold;
-   border: 2px solid rgb(177, 200, 214);
-    
+   border: 2px solid rgb(177, 200, 214);  
 }
+
+
 
 </style>
