@@ -2,7 +2,7 @@
   <div class="home">
    <br><br><br><br><br>
 
-
+ 
 
   <b-img id="homeImg" fluid class="mb-2" 
   
