@@ -61,7 +61,9 @@
 
    </div> <h3 v-else>No comments found.. Add your comment!</h3>  
       
-      <AddComment  :bid = 'id' />
+      <AddComment  :bid = 'id'
+        @add-comment="addComment"
+       />
 
 </div>
 
@@ -167,7 +169,26 @@ export default {
   },
    
    methods: {
-      //AddComment line 111
+      
+      addComment(newComment){
+        
+        console.log('new comment: ' , newComment);
+
+      db.collection('commentList').doc(newComment.cid + newComment.bid).set({
+
+            bid: newComment.bid,
+            cid: newComment.cid,
+            name: newComment.preferredName, 
+            comment: newComment.commentBody,             
+      })
+        this.commentList.push(newComment);
+        console.log(' commentList: ' , this.commentList);
+
+
+
+
+
+      }
 
 
 

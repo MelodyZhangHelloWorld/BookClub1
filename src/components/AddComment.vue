@@ -72,7 +72,8 @@
 
 <script>
 
-import db from './firebaseInit'; 
+//import db from './firebaseInit';
+
  export default {
    props: ['bid'], //bookId
 
@@ -96,36 +97,41 @@ import db from './firebaseInit';
     methods: {
       
       addComment(evt) {
-        evt.preventDefault()
-      
-        this.comment.cid = (new Date()).getTime();
-      
-      db.collection('commentList').doc(this.comment.cid + this.comment.bid).set({
+        evt.preventDefault();
 
+        this.comment.cid = (new Date()).getTime();
+
+        const newComment = {
             bid: this.comment.bid,
             cid: this.comment.cid,
-            name: this.comment.preferredName, 
-            comment: this.comment.commentBody,             
-      })
+            preferredName: this.comment.preferredName, 
+            commentBody: this.comment.commentBody,             
 
-      //emit to BookDetail to update commentList!!!!!
+        }
 
-      
-       this.form.comment = ''
-        this.form.name = ''
+        this.$emit('add-comment', newComment);
+        
+
+       this.comment.commentBody = ''
+        this.comment.preferredName = ''
+
+
+
+        
       },
 
       clearForm(evt) {
         evt.preventDefault()
         // Reset our form values
-        this.form.comment = ''
-        this.form.name = ''
+        this.comment.commentBody = ''
+        this.comment.preferredName = ''
        
         // Trick to reset/clear native browser form validation state
         this.show = false
         this.$nextTick(() => {
           this.show = true
         })
+
       }
     }
   }
