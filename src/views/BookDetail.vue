@@ -3,7 +3,7 @@
 <div class="mb-2"> 
 <br><br><br><br><br>
  <b-row align-h="center" class="m-1">
-       <b-col md="8" align-h="center"><!--  major col to md--> 
+       <b-col md="8" align-h="center"><!--  major col to md*--> 
 
    <b-card  class="m-3" id="bookdetail">
       <b-row  align-v="start" > <!-- image location-->
