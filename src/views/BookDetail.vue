@@ -6,7 +6,7 @@
 <b-row align-h="center"  class="mb-3">
   
 <b-button  @click="lastPage" variant="info" size="md" class="mr-3 mt-2">
- Back </b-button>
+ Back </b-button> 
      
 </b-row>
   <div v-if='hasBooks'>
