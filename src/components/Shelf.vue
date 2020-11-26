@@ -6,7 +6,9 @@
 <b-row align-h="center" >
   <form v-on:submit.prevent="getResult(query)">
   
-      <b-form-input id="searchInput" type="text" placeholder="press enter to search" v-model="query" ></b-form-input>
+      <b-form-input id="searchInput" type="text" 
+      sm="10" size="lg"
+      placeholder="press enter to search" v-model="query" ></b-form-input>
       
     </form> 
 </b-row>
@@ -19,8 +21,18 @@
         :book-list = "getSavedBooks"  
   />  <!-- data from Vuex, not directly from saved array -->
       </div>
-<h5 v-else class="m-3">Enter <b>Author Name</b> to start..</h5>
 
+      <div v-else>
+ <b-row align-h="center" class="m-4">
+       <b-col md="6" align-h="center" class="m-2">
+    <b-alert  show variant="info">
+      <h4  class="m-3">Enter <b>Author Name</b> to start..</h4></b-alert>
+       </b-col> </b-row>
+      </div>
+
+
+
+ 
 
  <BackToTop text="Top" visibleoffset="100"/>  
 

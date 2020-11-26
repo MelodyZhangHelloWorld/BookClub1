@@ -3,14 +3,15 @@
 <div class="mb-2"> 
 <br><br><br><br><br>
 
-<b-row align-h="center" @click="lastPage" class="mb-3">
+<b-row align-h="center"  class="mb-3">
   
-<b-button   variant="info" size="md" class="mr-3 mt-2">
+<b-button  @click="lastPage" variant="info" size="md" class="mr-3 mt-2">
  Back </b-button>
      
 </b-row>
+  <div v-if='hasBooks'>
 
-
+<!----->
  <b-row align-h="center" class="m-1">
        <b-col md="8" align-h="center"><!--  major col to md*--> 
 
@@ -61,14 +62,8 @@
 <b-row align-h="end">
   <b-button @click="saveBook"  variant="primary" size="sm" class="mr-3 mt-2">
  {{ status }} </b-button>
-
-      
-   
+ 
        </b-row>
-
-
-
-
 
    </b-card>      
   </b-col>
@@ -81,11 +76,33 @@
         :key= "comment.cid"
         :comment = "comment"    /> 
 
-   </div> <h4 v-else>No comments found.. Add your comment!</h4>  
+   </div> <div v-else>
+     <b-row align-h="center" class="m-4">
+       <b-col md="8" align-h="center" class="m-2">
+    <b-alert  show variant="info">
+      <h4 >No comments found.. Add your comment!</h4></b-alert>
+       </b-col> </b-row>
+   </div>
+   
+     
       
       <AddComment  :bid = 'id'
         @add-comment="addComment"
        />
+<!----->
+  </div>  
+
+  <div v-else>
+    <b-row align-h="center"  class="m-3"> 
+<b-alert  show variant="info"><h2>No books found.. Please go back!</h2></b-alert>
+
+
+    </b-row>
+  </div>
+<!--  -->
+
+
+
 
        <BackToTop text="Back to Top" 
        visibleoffset="100"    />
@@ -116,6 +133,7 @@ export default {
 
     data(){
       return {
+      hasBooks: this.$store.getters.hasBooks,
       selectedBook : null,
       hasComment: false,
       commentList: [],  
