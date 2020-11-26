@@ -46,6 +46,7 @@
 export default {
   props: ['id','title', 'author','category','lang','imageLink','description'],
 
+
    methods: {
       toDetailPage(id){
       //  alert("Book key: " + id);

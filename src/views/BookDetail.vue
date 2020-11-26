@@ -2,6 +2,15 @@
 
 <div class="mb-2"> 
 <br><br><br><br><br>
+
+<b-row align-h="center" @click="lastPage" class="mb-3">
+  
+<b-button   variant="info" size="md" class="mr-3 mt-2">
+ Back </b-button>
+     
+</b-row>
+
+
  <b-row align-h="center" class="m-1">
        <b-col md="8" align-h="center"><!--  major col to md*--> 
 
@@ -78,6 +87,10 @@
         @add-comment="addComment"
        />
 
+       <BackToTop text="Back to Top" 
+       visibleoffset="100"    />
+    
+
 </div>
 
   
@@ -86,6 +99,7 @@
 <script>
 import AddComment from '../components/AddComment.vue' 
 import CommentBase from '../components/CommentBase.vue'
+import BackToTop from 'vue-backtotop' //https://github.com/caiofsouza/vue-backtotop
 
 import db from '../components/firebaseInit' 
 
@@ -96,7 +110,8 @@ export default {
 
   components: {
     AddComment,
-    CommentBase
+    CommentBase,
+    BackToTop
   },
 
     data(){
@@ -212,6 +227,11 @@ export default {
           } else {
             this.status = 'Save this book for event';
           } //need to check if 
+      },
+
+      lastPage(evt){
+           evt.preventDefault();      
+            this.$router.push({ path: '/shelf' })
       }
 
 

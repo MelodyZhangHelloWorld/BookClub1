@@ -1,24 +1,11 @@
 <template>
   <div class="shelf">  <!--id="shelf"-->
-    
-  
-        
 
-        <!-- <ul v-if="hasBooks" >
-          <li v-for ="book in getSavedBooks" :key="book.id" >
-            {{ book.volumeInfo.title}} </li>
-
-          
-        </ul>
-        <h3 v-else>No books found..</h3> -->
-   
  <br><br><br><br><br> <!--????-->
  
 <b-row align-h="center" >
   <form v-on:submit.prevent="getResult(query)">
-    
-      <!-- <input type="text" placeholder="press enter to search" v-model="query" /> -->
-
+  
       <b-form-input id="searchInput" type="text" placeholder="press enter to search" v-model="query" ></b-form-input>
       
     </form> 
@@ -32,7 +19,10 @@
         :book-list = "getSavedBooks"  
   />  <!-- data from Vuex, not directly from saved array -->
       </div>
-<h5 class="m-3">Enter <b>Author Name</b> to start..</h5>
+<h5 v-else class="m-3">Enter <b>Author Name</b> to start..</h5>
+
+
+ <BackToTop text="Top" visibleoffset="100"/>  
 
 
   </div>
@@ -45,13 +35,16 @@
 import axios from 'axios';
 
 import BookInfo from "./BookInfo.vue";
+import BackToTop from 'vue-backtotop'
+
 
 
 export default {
   name: 'Shelf',
 
   components:{  //**
-    BookInfo
+    BookInfo,
+   BackToTop
  
   },
 
