@@ -119,7 +119,7 @@ import CommentBase from '../components/CommentBase.vue'
 import BackToTop from 'vue-backtotop' //https://github.com/caiofsouza/vue-backtotop
 
 import db from '../components/firebaseInit' 
-
+import axios from 'axios';
 
 export default {
 
@@ -133,7 +133,7 @@ export default {
 
     data(){
       return {
-      hasBooks: this.$store.getters.hasBooks,
+      hasBooks: false,
       selectedBook : null,
       hasComment: false,
       commentList: [],  
@@ -160,9 +160,18 @@ export default {
 
 
   created(){  
+    const link = 'https://www.googleapis.com/books/v1/volumes/'+this.id;
+ 
+  try {
+     axios.get(link).then(response => { 
+       
+       this.selectedBook = response.data;
+      //console.log( 'this.selected Book is   ', this.selectedBook);
     
-    this.selectedBook = this.$store.getters.books.find(
-      (book) => book.id === this.id );
+      this.hasBooks = true;
+
+   /* this.selectedBook = this.$store.getters.books.find(
+      (book) => book.id === this.id ); */
    
     const altImage = 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png'; //"../assets/imgNA.jpg";
     
@@ -191,7 +200,7 @@ export default {
        (snapshot) => {
         snapshot.docs.forEach (
           doc => {
-             console.log(doc.data());
+          //   console.log(doc.data());
             
             this.bid=doc.data().bid;
             this.cid=doc.data().cid;
@@ -215,13 +224,21 @@ export default {
    
         }
       )
+     
+      }
+     )    
+   } catch (err) {
+    console.log(err);
+    }
+  
+
   },
    
    methods: {
       
       addComment(newComment){
         
-        console.log('new comment: ' , newComment);
+     //   console.log('new comment: ' , newComment);
         this.commentList= [...this.commentList, newComment];
         this.hasComment = true;
 
