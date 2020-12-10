@@ -160,9 +160,9 @@ export default {
 
 
   created(){  
+    
     this.selectedBook = this.$store.getters.books.find(
-      (book) => book.id === this.id  
-        );
+      (book) => book.id === this.id );
    
     const altImage = 'https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png'; //"../assets/imgNA.jpg";
     
@@ -222,6 +222,8 @@ export default {
       addComment(newComment){
         
         console.log('new comment: ' , newComment);
+        this.commentList= [...this.commentList, newComment];
+        this.hasComment = true;
 
       db.collection('commentList').doc(newComment.cid + newComment.bid).set({
 
@@ -230,8 +232,7 @@ export default {
             name: newComment.preferredName, 
             comment: newComment.commentBody,             
       })
-        this.commentList.push(newComment);
-        console.log(' commentList: ' , this.commentList);
+       
 
       },
 

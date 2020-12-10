@@ -96,9 +96,6 @@ const apiKey = "AIzaSyDjKIA2LWHZXaUbsEudEL3VTiPc4-OzBOU";
    //search for particular author
    'https://www.googleapis.com/books/v1/volumes?q=inauthor:'+query+'&orderBy=relevance&key='+apiKey).then(response => {
      
-   //  console.log(response.data);
-     
-    // console.log( response.data.items[0].volumeInfo);
 
      this.bookList = response.data.items;  //*** VUEX
       this.$store.dispatch('saveBookData', this.bookList);
