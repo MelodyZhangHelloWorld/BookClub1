@@ -3,7 +3,7 @@
 
 <b-container >  <!-- this is created to compare the sm/md tags! turned out md is better-->
 
-<b-row align-v="center" class="mt-4">
+<b-row align-v="start" class="mt-4">
   
     <BookCard
     v-for="book in bookList"

@@ -103,7 +103,7 @@ const apiKey = "AIzaSyDjKIA2LWHZXaUbsEudEL3VTiPc4-OzBOU";
      this.bookList = response.data.items;  //*** VUEX
       this.$store.dispatch('saveBookData', this.bookList);
 
-    console.log( this.bookList);
+   // console.log( this.bookList);
 
      }
      
