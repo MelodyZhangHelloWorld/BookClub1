@@ -1,6 +1,6 @@
 <template>
 
-<div class="mb-2"> 
+<div class="mb-4"> 
 <br><br><br><br><br>
 
 <b-row align-h="center"  class="mb-3">
@@ -105,7 +105,7 @@
 
 
        <BackToTop text="Back to Top" 
-       visibleoffset="100"    />
+       visibleoffset="200" bottom="3px"    />
     
 
 </div>
